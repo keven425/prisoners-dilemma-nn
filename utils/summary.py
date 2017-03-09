@@ -39,27 +39,8 @@ def moving_average(a, n=10):
 
 def markov_matrix(csv_filepath, config=None):
 
-  # indices.
-  # e.g._is[0][1] corresponds to previously self:cooperate, opponent:defect
-  _is = [
-          [[], []],
-          [[], []]
-        ]
-  # actions
-  _as = [
-          [[], []],
-          [[], []]
-        ]
-
   its, actions1, actions2 = read_actions(csv_filepath)
-  _zip = zip(actions1, actions2)
-  _zip = _zip[1:]
-  for i, (action1, action2) in enumerate(_zip):
-    prev_a1 = _zip[i - 1][0]
-    prev_a2 = _zip[i - 1][1]
-    a = action1
-    _is[prev_a1][prev_a2].append(i)
-    _as[prev_a1][prev_a2].append(a)
+  _as, _is = get_markov_count(actions1, actions2)
 
   plt.figure(figsize=(12, 9))
   p1, = plt.plot(_is[0][0], _as[0][0], lw=1.0, color=tableau20[0], alpha=0.3)
@@ -104,6 +85,55 @@ def markov_matrix(csv_filepath, config=None):
   plt.close()
   print('saved fig to: \n' + path)
 
+
+def markov_matrix_prob(csv_filepath, config=None):
+  its, actions1, actions2 = read_actions(csv_filepath)
+  out1_str = get_markov_out_str(actions1, actions2, its)
+  out2_str = get_markov_out_str(actions2, actions1, its)
+
+  dirname = os.path.basename(os.path.dirname(csv_filepath))
+  filepath = os.path.join('plots', dirname, 'markov.txt')
+  with open(filepath, 'w') as fp:
+    fp.write('Agent1: ' + config.agent_names[0] + '\n')
+    fp.write(out1_str)
+    fp.write('\n\n')
+    fp.write('Agent2: ' + config.agent_names[1] + '\n')
+    fp.write(out2_str)
+
+
+def get_markov_out_str(actions1, actions2, its):
+  _as, _is = get_markov_count(actions1, actions2)
+  window = int(len(its) / 20)
+  p_cc = moving_average(_as[0][0], n=window)[-1]
+  p_cd = moving_average(_as[0][1], n=window)[-1]
+  p_dc = moving_average(_as[1][0], n=window)[-1]
+  p_dd = moving_average(_as[1][1], n=window)[-1]
+  out_str = 'P(CC),P(CD),P(DC),P(DD)\n' + \
+            "{0:.3f}".format(p_cc) + ',' + "{0:.3f}".format(p_cd) + ',' + "{0:.3f}".format(p_dc) + ',' + "{0:.3f}".format(p_dd)
+  return out_str
+
+
+def get_markov_count(actions1, actions2):
+  # indices.
+  # e.g._is[0][1] corresponds to previously self:cooperate, opponent:defect
+  _is = [
+    [[], []],
+    [[], []]
+  ]
+  # actions
+  _as = [
+    [[], []],
+    [[], []]
+  ]
+  _zip = zip(actions1, actions2)
+  _zip = _zip[1:]
+  for i, (action1, action2) in enumerate(_zip):
+    prev_a1 = _zip[i - 1][0]
+    prev_a2 = _zip[i - 1][1]
+    a = action1
+    _is[prev_a1][prev_a2].append(i)
+    _as[prev_a1][prev_a2].append(a)
+  return _as, _is
 
 
 def scores(csv_filepath, config):
@@ -197,4 +227,4 @@ def plot(filepath, x, y_s, title, sub_title, legends, x_label, y_label, config):
 
 
 if __name__ == "__main__":
-  markov_matrix('train/lr0.05_lr_decay0.9995_n_episodes10_n_batches99999_discount0.95_e0.2/actions.csv')
+  markov_matrix_prob('train/lr0.05_lr_decay0.9995_n_episodes10_n_batches99999_discount0.95_e0.2/actions.csv')

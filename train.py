@@ -17,7 +17,7 @@ from agent.q_learning_infinite import QLearningInfiniteAgent
 from agent.tit_for_dat import TitForDatAgent
 from environment import Environment
 from utils import csv
-from utils import plot
+from utils import summary
 
 logger = logging.getLogger("209_project")
 
@@ -42,9 +42,10 @@ class PreExitSaver():
     csv.save_actions(actions_path, (self.actions1, self.actions2))
 
     # plot
-    plot.scores(scores_path, config=self.config)
-    plot.actions(actions_path, config=self.config)
-    plot.markov_matrix(actions_path, config=self.config)
+    summary.scores(scores_path, config=self.config)
+    summary.actions(actions_path, config=self.config)
+    summary.markov_matrix(actions_path, config=self.config)
+    summary.markov_matrix_prob(actions_path, config=self.config)
 
 
 
