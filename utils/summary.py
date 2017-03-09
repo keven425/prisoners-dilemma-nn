@@ -100,6 +100,8 @@ def markov_matrix_prob(csv_filepath, config=None):
     fp.write('Agent2: ' + config.agent_names[1] + '\n')
     fp.write(out2_str)
 
+  print('saved markov matrix to: \n' + filepath)
+
 
 def get_markov_out_str(actions1, actions2, its):
   _as, _is = get_markov_count(actions1, actions2)
