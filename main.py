@@ -13,6 +13,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 
+tf.app.flags.DEFINE_string("name", "", "Name of this run. will be in model output path")
 tf.app.flags.DEFINE_float("learning_rate", 0.05, "Learning rate.")
 tf.app.flags.DEFINE_float("lr_decay", 0.9995, "Learning rate decay.")
 tf.app.flags.DEFINE_integer("n_episodes", 10, "Number of episodes within a batch")
@@ -45,7 +46,8 @@ FLAGS = tf.app.flags.FLAGS
 def main(_):
   # Set up some parameters.
   config = FLAGS
-  model_name = 'lr' + str(config.learning_rate) + '_' + \
+  model_name = config.name + \
+               'lr' + str(config.learning_rate) + '_' + \
                'lr_decay' + str(config.lr_decay) + '_' + \
                'n_episodes' + str(config.n_episodes) + '_' + \
                'n_batches' + str(config.n_batches) + '_' + \
