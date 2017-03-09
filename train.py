@@ -61,12 +61,12 @@ def run(config):
       # agent1 = QLearningAgent(config)
       # agent1 = QLearningAgentFiniteFast(config)
       agent1 = QLearningInfiniteAgent(config)
-    # with tf.variable_scope("Agent2"): # don't share weights
+    with tf.variable_scope("Agent2"): # don't share weights
       # agent2 = QLearningAgent(config)
       # agent2 = QLearningAgentFast(config)
-      # agent2 = QLearningInfiniteAgent(config)
+      agent2 = QLearningInfiniteAgent(config)
     # agent2 = AlwaysDefectAgent(config)
-    agent2 = TitForDatAgent(config)
+    # agent2 = TitForDatAgent(config)
     # agent2 = AlwaysCooperateAgent(config)
     logger.info("took %.2f seconds", time.time() - start)
     config.agent_names = [type(agent1).__name__, type(agent2).__name__]
