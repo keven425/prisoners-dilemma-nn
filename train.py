@@ -131,3 +131,4 @@ def run(config):
 
         preExitSaver.update(scores1, scores2, actions1, actions2)
 
+    preExitSaver.save()
