@@ -61,6 +61,8 @@ def main(_):
   dirpath = os.path.dirname(config.log_output)
   if not os.path.exists(dirpath):
     os.makedirs(dirpath)
+  if not os.path.exists(config.model_output_path):
+    os.makedirs(config.model_output_path)
   handler = logging.FileHandler(config.log_output)
   handler.setLevel(logging.DEBUG)
   handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s: %(message)s'))

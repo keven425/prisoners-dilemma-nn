@@ -194,4 +194,4 @@ def plot(filepath, x, y_s, title, sub_title, legends, x_label, y_label, config):
 
 
 if __name__ == "__main__":
-  markov_matrix('train/lr0.1_lr_decay0.9995_n_episodes10_n_batches99999_discount0.95_e0.2/actions.csv')
+  markov_matrix('train/lr0.05_lr_decay0.9995_n_episodes10_n_batches99999_discount0.95_e0.2/actions.csv')
