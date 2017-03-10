@@ -11,6 +11,7 @@ class AlwaysDefectAgent(AbstractAgent):
     """
 
     def __init__(self, config):
+      self.__class__.__name__ = 'Defect'
       super(AlwaysDefectAgent, self).__init__(config)
 
     ###################### Build the model ##############################

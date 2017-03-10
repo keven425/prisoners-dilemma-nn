@@ -17,7 +17,7 @@ tf.app.flags.DEFINE_string("name", "", "Name of this run. will be in model outpu
 tf.app.flags.DEFINE_float("learning_rate", 0.05, "Learning rate.")
 tf.app.flags.DEFINE_float("lr_decay", 0.9995, "Learning rate decay.")
 tf.app.flags.DEFINE_integer("n_episodes", 10, "Number of episodes within a batch")
-tf.app.flags.DEFINE_integer("n_batches", 100, "Number of batches to train.")
+tf.app.flags.DEFINE_integer("n_batches", 60, "Number of batches to train.")
 tf.app.flags.DEFINE_float("discount", 0.95, "Reward discount.")
 tf.app.flags.DEFINE_float("e", 0.2, "Epsilon probability to take random action.")
 tf.app.flags.DEFINE_integer("n_q_agents", 0, "Number of Q-learning agents in tournament.")
@@ -49,12 +49,21 @@ def main(_):
   # Set up some parameters.
   config = FLAGS
   model_name = config.name + \
+               (config.n_q_agents > 0 and ('qa' + str(config.n_q_agents) + '_') or '') + \
+               (config.n_titdat_agents > 0 and ('ta' + str(config.n_titdat_agents) + '_') or '') + \
+               (config.n_c_agents > 0 and ('ca' + str(config.n_c_agents) + '_') or '') + \
+               (config.n_d_agents > 0 and ('qa' + str(config.n_d_agents) + '_') or '') + \
+               'state' + str(config.state_size) + '_' + \
                'lr' + str(config.learning_rate) + '_' + \
                'lr_decay' + str(config.lr_decay) + '_' + \
                'n_episodes' + str(config.n_episodes) + '_' + \
                'n_batches' + str(config.n_batches) + '_' + \
                'discount' + str(config.discount) + '_' + \
-               'e' + str(config.e)
+               'e' + str(config.e) + '_' + \
+               'r' + str(config.reward) + '_' + \
+               't' + str(config.temptation) + '_' + \
+               's' + str(config.sucker) + '_' + \
+               'p' + str(config.punishment)
 
   config.model_output_path = FLAGS.model_output or os.path.join('train/', model_name + '/')
   config.model_output = FLAGS.model_output or os.path.join(FLAGS.model_output_path, 'model.ckpt')

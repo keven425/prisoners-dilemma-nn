@@ -12,6 +12,7 @@ class TitForDatAgent(AbstractAgent):
     """
 
     def __init__(self, config):
+      self.__class__.__name__ = 'TitDat'
       super(TitForDatAgent, self).__init__(config)
       # start off cooperating
       self.opponent_last_action = 0

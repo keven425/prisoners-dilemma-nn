@@ -12,6 +12,7 @@ logger = logging.getLogger("209_project")
 class QLearningInfiniteAgent(AbstractAgent):
 
   def __init__(self, config):
+    self.__class__.__name__ = 'Q-learn'
     super(QLearningInfiniteAgent, self).__init__(config)
     self.total_episode = 0
     # opponent's history of actions

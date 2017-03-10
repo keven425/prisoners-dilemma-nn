@@ -311,3 +311,80 @@ Ideals:
 distribution of agent types during evolve
 increase max timestep. hyperparameter. try 1 step? normal rnn (no memory)?
 play trained agent against always-defect agent. see how adapts
+
+
+
+
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --name rnnrnn_
+Your job 1285101 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 -e 0.4 --name rnnrnn_
+Your job 1285102 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 -e 0.1 --name rnnrnn_
+Your job 1285103 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --name rnn3_
+Your job 1285104 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 5 --name rnn5_
+Your job 1285105 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 20000 --n_q_agents 10 --name rnn10_
+Your job 1285106 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 20000 --n_q_agents 20 --name rnn20_
+Your job 1285107 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 5000 --n_q_agents 2 --temptation 10 --name rnn2_temptation10_
+Your job 1285108 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 5000 --n_q_agents 2 --temptation 20 --name rnn2_temptation20_
+Your job 1285109 ("submit.sh") has been submitted
+
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 20 --name rnn2_temptation20_
+Your job 1285114 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --name rnn2_temptation10_
+Your job 1285115 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --state_size 20 --name rnn2_temptation10_state20_
+Your job 1285116 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --state_size 40 --name rnn2_temptation10_state40_
+Your job 1285117 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --state_size 20 --name rnn2_state20_
+Your job 1285118 ("submit.sh") has been submitted
+corn11:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --state_size 40 --name rnn2_state40_
+Your job 1285119 ("submit.sh") has been submitted
+
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.01 --name rnn2_temptation10_
+Your job 1285167 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.001 --name rnn2_temptation10_
+Your job 1285168 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.01 --e 0.4 --name rnn2_temptation10_
+Your job 1285177 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.001 --e 0.4 --name rnn2_temptation10_
+Your job 1285178 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.01 --name rnn3_
+Your job 1285171 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.01 --e 0.4 --name rnn3_
+Your job 1285172 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.001 --name rnn3_
+Your job 1285173 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.001 --e 0.4 --name rnn3_
+Your job 1285174 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.001 --e 0.1 --name rnn3_
+Your job 1285175 ("submit.sh") has been submitted
+corn12:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.01 --e 0.1 --name rnn3_
+Your job 1285176 ("submit.sh") has been submitted
+
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.1 --name rnn2_temptation10_
+Your job 1285581 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --state_size 20 --temptation 10 --learning_rate 0.1 --name rnn2_state20_temptation10_
+Your job 1285582 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --state_size 40 --temptation 10 --learning_rate 0.1 --name rnn2_state40_temptation10_
+Your job 1285583 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.1 --lr_decay 0.99 --name rnn2_temptation10_
+Your job 1285584 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.1 --lr_decay 0.97 --name rnn2_temptation10_
+Your job 1285585 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.1 --lr_decay 0.95 --name rnn2_temptation10_
+Your job 1285586 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.1 --name rnn3_
+Your job 1285587 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q_agents 3 --learning_rate 0.5 --name rnn3_
+Your job 1285588 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 3 --learning_rate 0.01 --name rnn3_
+Your job 1285589 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 3 --learning_rate 0.001 --name rnn3_
+Your job 1285590 ("submit.sh") has been submitted

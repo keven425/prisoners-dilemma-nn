@@ -24,7 +24,15 @@ def get_title(config):
   if len(agents) <= 2:
     return agents[0] + ' vs. ' + agents[1]
   else:
-    return 'Tournament of ' + str(len(agents)) + ' ' + agents[0]
+    # e.g. 1 Q-learn, 2 Titdat, 3 Coop, 4 Defect agents
+    agent_counts = [config.n_q_agents, config.n_titdat_agents, config.n_c_agents, config.n_d_agents]
+    agent_types = ['Q-learn', 'TitDat', 'Coop', 'Defect']
+    agents = []
+    for i, count in enumerate(agent_counts):
+      if count > 0:
+        agents.append(str(count) + ' ' + agent_types[i])
+    name = ', '.join(agents) + ' agents'
+    return 'Tournament of ' + name
 
   return title
 
@@ -126,12 +134,12 @@ def get_markov_out_str(actions1, actions2):
   p_cd = moving_average(_as[0][1], n=window)
   p_dc = moving_average(_as[1][0], n=window)
   p_dd = moving_average(_as[1][1], n=window)
-  p_cc = len(p_cc) and p_cc[-1] or 0.0
-  p_cd = len(p_cd) and p_cd[-1] or 0.0
-  p_dc = len(p_dc) and p_dc[-1] or 0.0
-  p_dd = len(p_dd) and p_dd[-1] or 0.0
+  p_cc = len(p_cc) and "{0:.3f}".format(p_cc[-1]) or 'n/a'
+  p_cd = len(p_cd) and "{0:.3f}".format(p_cd[-1]) or 'n/a'
+  p_dc = len(p_dc) and "{0:.3f}".format(p_dc[-1]) or 'n/a'
+  p_dd = len(p_dd) and "{0:.3f}".format(p_dd[-1]) or 'n/a'
   out_str = 'P(CC),P(CD),P(DC),P(DD)\n' + \
-            "{0:.3f}".format(p_cc) + ',' + "{0:.3f}".format(p_cd) + ',' + "{0:.3f}".format(p_dc) + ',' + "{0:.3f}".format(p_dd)
+            p_cc + ',' + p_cd + ',' + p_dc + ',' + p_dd
   return out_str
 
 
@@ -186,7 +194,7 @@ def scores(npz_filepath, config):
   assert n_agents == config.n_agents
 
   its = range(scores.shape[1])
-  legends = [("Score: Agent " + str(i)) for i in range(config.n_agents)]
+  legends = [("Score: " + agent) for agent in config.agent_names]
   plot(filepath, its, scores, title, sub_title, legends, 'round', 'score', config)
 
 def actions(npz_filepath, config):
@@ -199,7 +207,7 @@ def actions(npz_filepath, config):
   actions = np.load(npz_filepath)['arr_0']
   its = range(actions.shape[1])
   # its, actions1, actions2 = read_actions(csv_filepath, config)
-  legends = ["% Defect: Agent " + str(i) for i in range(config.n_agents)]
+  legends = [("% Defect: " + agent) for agent in config.agent_names]
   plot(filepath, its, actions, title, sub_title, legends, 'episode', 'defect = 1, cooperate = 0', config)
 
 

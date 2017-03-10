@@ -85,8 +85,8 @@ def run(config):
     config.agent_names = [type(agent).__name__ for agent in agents]
 
     init = tf.global_variables_initializer()
-    saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
-    # saver = None
+    # saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
+    saver = None
 
     scores = [[] for _ in range(config.n_agents)] # one per batch
     actions = [[] for _ in range(config.n_agents)] # one per episode
