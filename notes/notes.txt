@@ -302,3 +302,12 @@ Q_target:
   [ 147.98501916  142.61675705]]]
 agent1 score: 34.5365791665, loss: 586.731, lr: 0.000156111
 agent2 score: 23.1940107638, loss: 378.249, lr: 0.000156111
+
+
+
+
+Ideals:
+########
+distribution of agent types during evolve
+increase max timestep. hyperparameter. try 1 step? normal rnn (no memory)?
+play trained agent against always-defect agent. see how adapts
