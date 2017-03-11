@@ -58,7 +58,7 @@ class PreExitSaver():
 def run(config):
 
   preExitSaver = PreExitSaver(config)
-  atexit.register(preExitSaver.save)
+  # atexit.register(preExitSaver.save)
 
   with tf.Graph().as_default():
     logger.info("Building model...", )
@@ -67,6 +67,11 @@ def run(config):
     for i in range(config.n_q_agents):
       with tf.variable_scope("Agent" + str(i)): # different scope for each agent
         agent = QLearningInfiniteAgent(config)
+        agents.append(agent)
+
+    for i in range(config.n_q2_agents):
+      with tf.variable_scope("Agent_2l" + str(i)): # different scope for each agent
+        agent = QLearningInfiniteAgent(config, n_layer=2)
         agents.append(agent)
 
     for i in range(config.n_titdat_agents):
@@ -82,7 +87,7 @@ def run(config):
       agents.append(agent)
 
     logger.info("took %.2f seconds", time.time() - start)
-    config.agent_names = [type(agent).__name__ for agent in agents]
+    config.agent_names = [agent.name for agent in agents]
 
     init = tf.global_variables_initializer()
     # saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
@@ -95,6 +100,7 @@ def run(config):
       action_pairs[i] = [[[], []] for _ in range(config.n_agents)]
 
     with tf.Session() as session:
+
       if config.model_path:
         logger.info("restoring model: " + config.model_path)
         start = time.time()

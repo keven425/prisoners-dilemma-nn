@@ -11,7 +11,7 @@ class AlwaysCooperateAgent(AbstractAgent):
     """
 
     def __init__(self, config):
-      self.__class__.__name__ = 'Coop'
+      self.name = 'Coop'
       super(AlwaysCooperateAgent, self).__init__(config)
 
     ###################### Build the model ##############################

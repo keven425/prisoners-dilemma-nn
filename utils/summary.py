@@ -25,8 +25,8 @@ def get_title(config):
     return agents[0] + ' vs. ' + agents[1]
   else:
     # e.g. 1 Q-learn, 2 Titdat, 3 Coop, 4 Defect agents
-    agent_counts = [config.n_q_agents, config.n_titdat_agents, config.n_c_agents, config.n_d_agents]
-    agent_types = ['Q-learn', 'TitDat', 'Coop', 'Defect']
+    agent_counts = [config.n_q_agents, config.n_q2_agents, config.n_titdat_agents, config.n_c_agents, config.n_d_agents]
+    agent_types = ['Q-1layer', 'Q-2layer', 'TitDat', 'Coop', 'Defect']
     agents = []
     for i, count in enumerate(agent_counts):
       if count > 0:

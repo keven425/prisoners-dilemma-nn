@@ -396,3 +396,32 @@ corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches
 Your job 1285624 ("submit.sh") has been submitted
 corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --learning_rate 0.05 --n_q_agents 2 --n_d_agents 1
 Your job 1285626 ("submit.sh") has been submitted
+
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_episodes 40 --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.01
+Your job 1286140 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_episodes 80 --n_batches 30000 --n_q_agents 2 --temptation 10 --learning_rate 0.01
+Your job 1286141 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --learning_rate 0.05 --n_q_agents 3 --n_d_agents 1
+Your job 1286146 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_episodes 20 --n_batches 30000 --learning_rate 0.05 --n_q_agents 3 --n_d_agents 1
+Your job 1286147 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_episodes 40 --n_batches 30000 --learning_rate 0.05 --n_q_agents 3 --n_d_agents 1
+Your job 1286148 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_episodes 20 --n_batches 30000 --learning_rate 0.05 --n_q_agents 4 --n_d_agents 1
+Your job 1286149 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_episodes 20 --n_batches 30000 --learning_rate 0.05 --n_q_agents 5 --n_d_agents 1
+Your job 1286150 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 2 --learning_rate 0.05
+Your job 1286151 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 2 --learning_rate 0.1
+Your job 1286152 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 2 --learning_rate 0.01
+Your job 1286153 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 2 --learning_rate 0.001
+Your job 1286154 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 2 --learning_rate 0.05 --e 0.1
+Your job 1286155 ("submit.sh") has been submitted
+corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 2 --learning_rate 0.05 --e 0.4
+Your job 1286156 ("submit.sh") has been submitted
+
+2 layers

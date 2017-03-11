@@ -11,8 +11,9 @@ logger = logging.getLogger("209_project")
 
 class QLearningInfiniteAgent(AbstractAgent):
 
-  def __init__(self, config):
-    self.__class__.__name__ = 'Q-learn'
+  def __init__(self, config, n_layer=1):
+    self.name = 'Q-' + str(n_layer) + 'layer'
+    self.n_layer = n_layer
     super(QLearningInfiniteAgent, self).__init__(config)
     self.total_episode = 0
     # opponent's history of actions
@@ -45,11 +46,21 @@ class QLearningInfiniteAgent(AbstractAgent):
 
   def add_logit_op(self):
     with tf.variable_scope("QLearningAgent"):
-      cell = tf.contrib.rnn.LSTMCell(self.config.state_size, num_proj=2)
+      cells = []
+      if self.n_layer == 2: # only support 1 or 2 layer for now
+        _cell = tf.contrib.rnn.LSTMCell(self.config.state_size)
+        cells.append(_cell)
+      _cell = tf.contrib.rnn.LSTMCell(self.config.state_size, num_proj=2)
+      cells.append(_cell)
+      cell = tf.contrib.rnn.MultiRNNCell(cells)
+
       # if episode == 0, needs sequence_length to be 1
       sequence_length = self.n_episode_lookback_placeholder + 1
       Q_out, Q_last = tf.nn.dynamic_rnn(cell, self.states_placeholder, sequence_length=sequence_length, dtype=tf.float32)
-      Q_last = Q_last[1]
+      if self.n_layer <= 1:
+        Q_last = Q_last[0][1]
+      elif self.n_layer == 2:
+        Q_last = Q_last[1][1]
     return Q_out, Q_last
 
   def add_prediction_op(self, logit, Q_last):
