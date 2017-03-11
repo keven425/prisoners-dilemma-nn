@@ -17,11 +17,12 @@ tf.app.flags.DEFINE_string("name", "", "Name of this run. will be in model outpu
 tf.app.flags.DEFINE_float("learning_rate", 0.05, "Learning rate.")
 tf.app.flags.DEFINE_float("lr_decay", 0.9995, "Learning rate decay.")
 tf.app.flags.DEFINE_integer("n_episodes", 10, "Number of episodes within a batch")
-tf.app.flags.DEFINE_integer("n_batches", 60, "Number of batches to train.")
+tf.app.flags.DEFINE_integer("n_batches", 3000, "Number of batches to train.")
 tf.app.flags.DEFINE_float("discount", 0.95, "Reward discount.")
 tf.app.flags.DEFINE_float("e", 0.2, "Epsilon probability to take random action.")
 tf.app.flags.DEFINE_integer("n_q_agents", 0, "Number of Q-learning agents in tournament.")
 tf.app.flags.DEFINE_integer("n_q2_agents", 0, "Number of 2 layer Q-learning agents in tournament.")
+tf.app.flags.DEFINE_integer("n_e_agents", 0, "Number of extorting agents in tournament.")
 tf.app.flags.DEFINE_integer("n_titdat_agents", 0, "Number of tit-for-dat agents in tournament.")
 tf.app.flags.DEFINE_integer("n_c_agents", 0, "Number of always cooperating agents in tournament.")
 tf.app.flags.DEFINE_integer("n_d_agents", 0, "Number of always defecting agents in tournament.")
@@ -52,6 +53,7 @@ def main(_):
   model_name = config.name + \
                (config.n_q_agents > 0 and ('qa' + str(config.n_q_agents) + '_') or '') + \
                (config.n_q2_agents > 0 and ('q2a' + str(config.n_q2_agents) + '_') or '') + \
+               (config.n_e_agents > 0 and ('ea' + str(config.n_e_agents) + '_') or '') + \
                (config.n_titdat_agents > 0 and ('ta' + str(config.n_titdat_agents) + '_') or '') + \
                (config.n_c_agents > 0 and ('ca' + str(config.n_c_agents) + '_') or '') + \
                (config.n_d_agents > 0 and ('da' + str(config.n_d_agents) + '_') or '') + \
@@ -71,7 +73,7 @@ def main(_):
   config.model_output = FLAGS.model_output or os.path.join(FLAGS.model_output_path, 'model.ckpt')
   config.log_output = FLAGS.log_output or os.path.join('log/', model_name)
   config.debug = True # debug mode
-  config.n_agents = config.n_q_agents + config.n_q2_agents + config.n_titdat_agents + config.n_c_agents + config.n_d_agents
+  config.n_agents = config.n_q_agents + config.n_q2_agents + config.n_e_agents + config.n_titdat_agents + config.n_c_agents + config.n_d_agents
 
   # set up logger
   dirpath = os.path.dirname(config.log_output)

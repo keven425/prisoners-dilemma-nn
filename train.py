@@ -15,6 +15,7 @@ from agent.always_defect import AlwaysDefectAgent
 from agent.q_learning_finite import QLearningFiniteAgent
 from agent.q_learning_finite_fast import QLearningAgentFiniteFast
 from agent.q_learning_infinite import QLearningInfiniteAgent
+from agent.extort_agent import ExtortingAgent
 from agent.tit_for_dat import TitForDatAgent
 from environment import Environment
 from utils import csv
@@ -73,6 +74,10 @@ def run(config):
       with tf.variable_scope("Agent_2l" + str(i)): # different scope for each agent
         agent = QLearningInfiniteAgent(config, n_layer=2)
         agents.append(agent)
+
+    for i in range(config.n_e_agents):
+      agent = ExtortingAgent(config)
+      agents.append(agent)
 
     for i in range(config.n_titdat_agents):
       agent = TitForDatAgent(config)
