@@ -52,7 +52,7 @@ def main(_):
                (config.n_q_agents > 0 and ('qa' + str(config.n_q_agents) + '_') or '') + \
                (config.n_titdat_agents > 0 and ('ta' + str(config.n_titdat_agents) + '_') or '') + \
                (config.n_c_agents > 0 and ('ca' + str(config.n_c_agents) + '_') or '') + \
-               (config.n_d_agents > 0 and ('qa' + str(config.n_d_agents) + '_') or '') + \
+               (config.n_d_agents > 0 and ('da' + str(config.n_d_agents) + '_') or '') + \
                'state' + str(config.state_size) + '_' + \
                'lr' + str(config.learning_rate) + '_' + \
                'lr_decay' + str(config.lr_decay) + '_' + \

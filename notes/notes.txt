@@ -388,3 +388,11 @@ corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches
 Your job 1285589 ("submit.sh") has been submitted
 corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 100000 --n_q_agents 3 --learning_rate 0.001 --name rnn3_
 Your job 1285590 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --learning_rate 0.05 --n_titdat_agents 1 --n_c_agents 1 --n_d_agents 1
+Your job 1285591 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --learning_rate 0.05 --n_q_agents 1 --n_titdat_agents 1 --n_c_agents 1 --n_d_agents 1
+Your job 1285592 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --learning_rate 0.05 --n_q_agents 1 --n_titdat_agents 1 --n_d_agents 1
+Your job 1285624 ("submit.sh") has been submitted
+corn19:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --learning_rate 0.05 --n_q_agents 2 --n_d_agents 1
+Your job 1285626 ("submit.sh") has been submitted
