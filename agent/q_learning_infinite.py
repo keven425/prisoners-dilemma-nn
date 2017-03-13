@@ -14,6 +14,7 @@ class QLearningInfiniteAgent(AbstractAgent):
   def __init__(self, config, n_layer=1):
     self.name = 'Q-' + str(n_layer) + 'layer'
     self.n_layer = n_layer
+    self.e = config.e
     super(QLearningInfiniteAgent, self).__init__(config)
     self.total_episode = 0
     # opponent's history of actions
@@ -102,12 +103,13 @@ class QLearningInfiniteAgent(AbstractAgent):
     feed = self.create_feed_dict([n_episode_lookback], [states])
     action = sess.run(self.pred, feed_dict=feed)
     action = action[0]
+    # e-greedy: randomly choose strategy w/ probability
+    if np.random.rand(1) < self.e:
+      action = np.random.randint(2)
+    # anneal e as game goes on
+    self.e *= self.config.adapt
     assert (self.total_episode % self.config.n_episodes) == episode
     self.total_episode += 1
-
-    # randomly choose strategy w/ probability
-    if np.random.rand(1) < self.config.e:
-      action = np.random.randint(2)
     return action
 
   def get_feed(self, total_episode):

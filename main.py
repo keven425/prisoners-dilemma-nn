@@ -19,7 +19,8 @@ tf.app.flags.DEFINE_float("lr_decay", 0.9995, "Learning rate decay.")
 tf.app.flags.DEFINE_integer("n_episodes", 10, "Number of episodes within a batch")
 tf.app.flags.DEFINE_integer("n_batches", 3000, "Number of batches to train.")
 tf.app.flags.DEFINE_float("discount", 0.95, "Reward discount.")
-tf.app.flags.DEFINE_float("e", 0.2, "Epsilon probability to take random action.")
+tf.app.flags.DEFINE_float("e", 0.2, "otherwise if float, apply Epsilon probability to take random action.")
+tf.app.flags.DEFINE_float("adapt", 0.9999, "decay rate for e. apply adaptive e rate, decay w.r.t. epochs. ")
 tf.app.flags.DEFINE_integer("n_q_agents", 0, "Number of Q-learning agents in tournament.")
 tf.app.flags.DEFINE_integer("n_q2_agents", 0, "Number of 2 layer Q-learning agents in tournament.")
 tf.app.flags.DEFINE_integer("n_e_agents", 0, "Number of extorting agents in tournament.")
@@ -64,6 +65,7 @@ def main(_):
                'n_batches' + str(config.n_batches) + '_' + \
                'discount' + str(config.discount) + '_' + \
                'e' + str(config.e) + '_' + \
+               'adapt' + str(config.adapt) + '_' + \
                'r' + str(config.reward) + '_' + \
                't' + str(config.temptation) + '_' + \
                's' + str(config.sucker) + '_' + \

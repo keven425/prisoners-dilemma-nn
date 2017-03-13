@@ -460,3 +460,76 @@ corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches
 Your job 1286189 ("submit.sh") has been submitted
 corn28:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 3 --learning_rate 0.001
 Your job 1286190 ("submit.sh") has been submitted
+
+##########
+# 3/11
+##########
+
+# lr = 1.0
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 2 --temptation 10 --n_episodes 40 --learning_rate 1.0
+Your job 1286301 ("submit.sh") has been submitted
+
+# change n_episodes
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 2 --temptation 10 --n_episodes 80 --learning_rate 0.01
+Your job 1286302 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q2_agents 2 --temptation 10 --n_episodes 160 --learning_rate 0.01
+Your job 1286303 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 30000 --n_q2_agents 2 --temptation 10 --n_episodes 320 --learning_rate 0.01
+Your job 1286304 ("submit.sh") has been submitted
+
+# change n_episode, q-layer, with e = 0
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_d_agents 1 --n_episodes 20 --learning_rate 0.01 --e 0.0
+Your job 1286305 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_d_agents 1 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286306 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_d_agents 1 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286307 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_d_agents 1 --n_episodes 20 --learning_rate 0.01 --e 0.0
+Your job 1286308 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_d_agents 1 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286309 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_d_agents 1 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286310 ("submit.sh") has been submitted
+
+# evolve among q2, change n_episodes
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_episodes 20 --learning_rate 0.01 --e 0.0
+Your job 1286311 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286312 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286313 ("submit.sh") has been submitted
+
+# evolve among q2, d, change n_episodes
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_d_agents 1 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286314 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_d_agents 1 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286315 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_d_agents 1 --n_episodes 160 --learning_rate 0.01 --e 0.0
+Your job 1286316 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 3 --n_d_agents 1 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286317 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 3 --n_d_agents 1 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286318 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 3 --n_d_agents 1 --n_episodes 160 --learning_rate 0.01 --e 0.0
+Your job 1286319 ("submit.sh") has been submitted
+
+# evolve diverse players
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286320 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286321 ("submit.sh") has been submitted
+
+# q against extorting agent
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286322 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_e_agents 1 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286323 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.01 --e 0.0
+Your job 1286324 ("submit.sh") has been submitted
+corn06:/farmshare/user_data/kvw/prisoners-dilemma-nn> qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 80 --learning_rate 0.01 --e 0.0
+Your job 1286325 ("submit.sh") has been submitted
+
+
+3/12
+# try learning rate 1.0
+# thompson sampling
