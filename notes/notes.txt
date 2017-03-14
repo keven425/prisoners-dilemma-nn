@@ -532,4 +532,142 @@ Your job 1286325 ("submit.sh") has been submitted
 
 3/12
 # try learning rate 1.0
-# thompson sampling
+# adaptive sampling rate
+
+
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_episodes 10
+Your job 1288194 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_episodes 40
+Your job 1288195 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_episodes 10 --learning_rate 1.0
+Your job 1288196 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_episodes 40 --learning_rate 1.0
+Your job 1288197 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_episodes 10 --learning_rate 0.01
+Your job 1288198 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_episodes 40 --learning_rate 0.01
+Your job 1288199 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 2 --n_episodes 40 --learning_rate 0.001
+Your job 1288200 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_q_agents 1 --n_episodes 40 --learning_rate 0.01
+Your job 1288201 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_episodes 40 --learning_rate 0.01
+Your job 1288202 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_episodes 40 --learning_rate 1.0
+Your job 1288203 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 3 --n_episodes 40 --learning_rate 0.01
+Your job 1288204 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 3 --n_episodes 40 --learning_rate 1.0
+Your job 1288205 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --state_size 20 --n_episodes 10 --learning_rate 0.01
+Your job 1288206 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --state_size 40 --n_episodes 10 --learning_rate 0.001
+Your job 1288207 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --state_size 20 --n_episodes 40 --learning_rate 0.01
+Your job 1288208 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_e_agents 1 --state_size 40 --n_episodes 40 --learning_rate 0.001
+Your job 1288209 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 0.01
+Your job 1288210 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.01
+Your job 1288211 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 0.01
+Your job 1288212 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.01
+Your job 1288213 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 1.0
+Your job 1288214 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 1.0
+Your job 1288215 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 1.0
+Your job 1288216 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 1.0
+Your job 1288217 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_titdat_agents 1 --n_d_agents 1
+Your job 1288218 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 1.0
+Your job 1288219 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.01
+Your job 1288220 ("submit.sh") has been submitted
+
+
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_episodes 10 --learning_rate 0.001
+1289085
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_episodes 40 --learning_rate 0.001
+1289086
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --state_size 40 --n_episodes 10 --learning_rate 0.001
+1289087
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --state_size 40 --n_episodes 40 --learning_rate 0.001
+1289088
+qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_episodes 40 --learning_rate 0.001
+1289089
+qsub submit.sh --n_batches 50000 --n_q2_agents 3 --n_episodes 40 --learning_rate 0.0001
+1289090
+qsub submit.sh --n_batches 50000 --n_q_agents 3 --n_episodes 10 --learning_rate 0.01
+1289091
+qsub submit.sh --n_batches 50000 --n_q2_agents 4 --n_episodes 10 --learning_rate 0.001
+1289092
+qsub submit.sh --n_batches 50000 --n_q2_agents 5 --n_episodes 10 --learning_rate 0.001
+1289093
+qsub submit.sh --n_batches 30000 --n_q_agents 4 --n_episodes 10 --learning_rate 0.01
+1289094
+qsub submit.sh --n_batches 30000 --n_q_agents 5 --n_episodes 10 --learning_rate 0.01
+1289095
+qsub submit.sh --n_batches 30000 --n_q_agents 4 --n_episodes 20 --learning_rate 0.01
+1289096
+qsub submit.sh --n_batches 30000 --n_q_agents 5 --n_episodes 20 --learning_rate 0.01
+1289097
+qsub submit.sh --n_batches 30000 --n_q_agents 4 --state_size 20 --n_episodes 20 --learning_rate 0.01
+1289098
+qsub submit.sh --n_batches 30000 --n_q_agents 5 --state_size 20 --n_episodes 20 --learning_rate 0.01
+1289099
+qsub submit.sh --n_batches 30000 --n_q_agents 4 --state_size 20 --n_episodes 20 --learning_rate 0.001
+1289100
+qsub submit.sh --n_batches 30000 --n_q_agents 5 --state_size 20 --n_episodes 20 --learning_rate 0.001
+1289101
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 0.001
+1289102
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.001
+1289103
+qsub submit.sh --n_batches 50000 --n_q_agents 1 --n_q2_agents 1 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.001
+1289104
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_d_agents 1 --n_episodes 10 --learning_rate 0.01
+1289105
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_d_agents 1 --n_episodes 40 --learning_rate 0.01
+1289106
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_e_agents 1 --n_episodes 10 --learning_rate 0.01
+1289107
+qsub submit.sh --n_batches 50000 --n_q_agents 2 --n_e_agents 1 --n_episodes 40 --learning_rate 0.01
+1289108
+qsub submit.sh --n_batches 50000 --n_q2_agents 2 --n_d_agents 1 --n_episodes 10 --learning_rate 0.001
+1289109
+qsub submit.sh --n_batches 50000 --n_q2_agents 2 --n_d_agents 1 --n_episodes 40 --learning_rate 0.001
+1289110
+qsub submit.sh --n_batches 50000 --n_q2_agents 2 --n_e_agents 1 --n_episodes 10 --learning_rate 0.001
+1289112
+qsub submit.sh --n_batches 50000 --n_q2_agents 2 --n_e_agents 1 --n_episodes 40 --learning_rate 0.001
+1289113
+
+Q agent 1 layer learning rate 0.01
+Q agent 2 layer learning rate 0.001
+episode 40 requires state >= 20
+
+
+qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 0.001 --name bully_
+Your job 1289334 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q2_agents 3 --state_size 20 --n_episodes 10 --learning_rate 0.001
+Your job 1289335 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q2_agents 3 --state_size 20 --n_episodes 10 --learning_rate 0.0001
+Your job 1289336 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q2_agents 4 --state_size 20 --n_episodes 10 --learning_rate 0.001
+Your job 1289337 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q2_agents 4 --state_size 20 --n_episodes 10 --learning_rate 0.0001
+Your job 1289338 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_q2_agents 1 --state_size 20 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 20 --learning_rate 0.001
+Your job 1289339 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_q2_agents 1 --state_size 20 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.001
+Your job 1289340 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_titdat_agents 1 --n_episodes 10 --learning_rate 0.01 --name titdat_
+Your job 1289341 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_titdat_agents 1 --n_episodes 10 --learning_rate 0.01 --discount 0.5 --name titdat_discount_
+Your job 1289342 ("submit.sh") has been submitted

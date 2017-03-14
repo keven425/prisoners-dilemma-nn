@@ -3,10 +3,10 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 matplotlib.rcParams['agg.path.chunksize'] = 20000
-# matplotlib.pyplot.rcParams['agg.path.chunksize'] = 20000
 import matplotlib.pyplot as plt
 
 
+# pretty colors
 tableau20 = [(31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),
              (44, 160, 44), (152, 223, 138), (214, 39, 40), (255, 152, 150),
              (148, 103, 189), (197, 176, 213), (140, 86, 75), (196, 156, 148),

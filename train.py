@@ -147,8 +147,8 @@ def run(config):
 
           score1, loss1, lr1 = agent1.end_batch(session, saver, best_score)
           score2, loss2, lr2 = agent2.end_batch(session, saver, best_score)
-          print('agent1 score: ' + str(score1) + ', loss: ' + str(loss1) + ', lr: ' + str(lr1))
-          print('agent2 score: ' + str(score2) + ', loss: ' + str(loss2) + ', lr: ' + str(lr2))
+          logger.info('agent1 score: ' + str(score1) + ', loss: ' + str(loss1) + ', lr: ' + str(lr1))
+          logger.info('agent2 score: ' + str(score2) + ', loss: ' + str(loss2) + ', lr: ' + str(lr2))
 
           scores[i].append(score1)
           scores[j].append(score2)
