@@ -136,11 +136,10 @@ def markov_matrix_prob(csv_filepath, config=None):
 
 def get_markov_out_str(actions1, actions2):
   _as, _is = get_markov_count(actions1, actions2)
-  window = int(len(actions1) / 20)
-  p_cc = moving_average(_as[0][0], n=window)
-  p_cd = moving_average(_as[0][1], n=window)
-  p_dc = moving_average(_as[1][0], n=window)
-  p_dd = moving_average(_as[1][1], n=window)
+  p_cc = moving_average(_as[0][0], n=int(len(_as[0][0]) / 20))
+  p_cd = moving_average(_as[0][1], n=int(len(_as[0][1]) / 20))
+  p_dc = moving_average(_as[1][0], n=int(len(_as[1][0]) / 20))
+  p_dd = moving_average(_as[1][1], n=int(len(_as[1][1]) / 20))
   p_cc = len(p_cc) and "{0:.3f}".format(p_cc[-1]) or 'n/a'
   p_cd = len(p_cd) and "{0:.3f}".format(p_cd[-1]) or 'n/a'
   p_dc = len(p_dc) and "{0:.3f}".format(p_dc[-1]) or 'n/a'
@@ -280,4 +279,11 @@ def plot(filepath, x, y_s, title, sub_title, legends, x_label, y_label, config):
 
 
 if __name__ == "__main__":
-  markov_matrix_prob('train/lr0.05_lr_decay0.9995_n_episodes10_n_batches99999_discount0.95_e0.2/actions.csv')
+  # tiny config class
+  class Config:
+    def __init__(self, **kwargs):
+      self.__dict__.update(kwargs)
+
+  config = Config(n_agents=2, agent_names=['Q-1layer', 'TitDat'])
+  markov_matrix_prob('train/titdat_qa1_ta1_state10_lr0.01_lr_decay0.9995_n_episodes10_n_batches20000_discount0.95_e0.2_adapt0.9999_r3_t5_s0_p1/actions_pair.npz',
+                     config)
