@@ -653,21 +653,21 @@ Q agent 2 layer learning rate 0.001
 episode 40 requires state >= 20
 
 
-qsub submit.sh --n_batches 50000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 0.001 --name bully_
-Your job 1289334 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q2_agents 3 --state_size 20 --n_episodes 10 --learning_rate 0.001
-Your job 1289335 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q2_agents 3 --state_size 20 --n_episodes 10 --learning_rate 0.0001
-Your job 1289336 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q2_agents 4 --state_size 20 --n_episodes 10 --learning_rate 0.001
-Your job 1289337 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q2_agents 4 --state_size 20 --n_episodes 10 --learning_rate 0.0001
-Your job 1289338 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_q2_agents 1 --state_size 20 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 20 --learning_rate 0.001
-Your job 1289339 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_q2_agents 1 --state_size 20 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.001
-Your job 1289340 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_titdat_agents 1 --n_episodes 10 --learning_rate 0.01 --name titdat_
-Your job 1289341 ("submit.sh") has been submitted
-qsub submit.sh --n_batches 10000 --n_q_agents 1 --n_titdat_agents 1 --n_episodes 10 --learning_rate 0.01 --discount 0.5 --name titdat_discount_
-Your job 1289342 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 30000 --n_q2_agents 1 --n_e_agents 1 --n_episodes 10 --learning_rate 0.001 --name bully_
+Your job 1289343 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q2_agents 3 --state_size 20 --n_episodes 10 --learning_rate 0.001
+Your job 1289344 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q2_agents 3 --state_size 20 --n_episodes 10 --learning_rate 0.0001
+Your job 1289345 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q2_agents 4 --state_size 20 --n_episodes 10 --learning_rate 0.001
+Your job 1289346 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q2_agents 4 --state_size 20 --n_episodes 10 --learning_rate 0.0001
+Your job 1289347 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q_agents 1 --n_q2_agents 1 --state_size 20 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 20 --learning_rate 0.001
+Your job 1289348 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q_agents 1 --n_q2_agents 1 --state_size 20 --n_titdat_agents 1 --n_d_agents 1 --n_e_agents 1 --n_episodes 40 --learning_rate 0.001
+Your job 1289349 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q_agents 1 --n_titdat_agents 1 --n_episodes 10 --learning_rate 0.01 --name titdat_
+Your job 1289350 ("submit.sh") has been submitted
+qsub submit.sh --n_batches 20000 --n_q_agents 1 --n_titdat_agents 1 --n_episodes 10 --learning_rate 0.01 --discount 0.5 --name titdat_discount_
+Your job 1289351 ("submit.sh") has been submitted

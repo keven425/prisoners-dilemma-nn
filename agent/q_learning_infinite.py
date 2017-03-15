@@ -169,10 +169,10 @@ class QLearningInfiniteAgent(AbstractAgent):
     self.running_score = 0.0
 
     # print stats
-    print('own_actions:')
-    print(str(self.own_actions))
-    print('Q_target:')
-    print(str(self.Q_target))
+    logger.info('own_actions:')
+    logger.info(str(self.own_actions))
+    logger.info('Q_target:')
+    logger.info(str(self.Q_target))
 
     # train
     states, _ = self.get_feed(self.total_episode)
