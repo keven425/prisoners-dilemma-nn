@@ -138,12 +138,12 @@ def run(config):
 
             tf.get_variable_scope().reuse_variables()
 
-            actions[i].append(a1)
-            actions[j].append(a2)
-            action_pairs[i][j][0].append(a1)
-            action_pairs[i][j][1].append(a2)
-            action_pairs[j][i][0].append(a2)
-            action_pairs[j][i][1].append(a1)
+            # actions[i].append(a1)
+            # actions[j].append(a2)
+            # action_pairs[i][j][0].append(a1)
+            # action_pairs[i][j][1].append(a2)
+            # action_pairs[j][i][0].append(a2)
+            # action_pairs[j][i][1].append(a1)
 
           score1, loss1, lr1 = agent1.end_batch(session, saver, best_score)
           score2, loss2, lr2 = agent2.end_batch(session, saver, best_score)

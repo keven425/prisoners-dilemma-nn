@@ -1,5 +1,6 @@
 import os
 import logging
+import numpy as np
 
 logger = logging.getLogger("209_project")
 
@@ -10,7 +11,7 @@ class AbstractAgent(object):
 
     def __init__(self, config):
       self.config = config
-      self.running_score = 0.0
+      self.running_score = np.zeros(shape=(self.config.batch_size,))
 
     ###################### Build the model ##############################
 

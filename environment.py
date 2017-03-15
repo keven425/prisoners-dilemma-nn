@@ -1,3 +1,4 @@
+import numpy as np
 
 
 class Environment(object):
@@ -36,13 +37,27 @@ class Environment(object):
     episode = self.episode
     self.episode += 1
 
-    if a1 == 0 and a2 == 0:
-      r1, r2 = self.config.reward, self.config.reward
-    elif a1 == 0 and a2 == 1:
-      r1, r2 = self.config.sucker, self.config.temptation
-    elif a1 == 1 and a2 == 0:
-      r1, r2 = self.config.temptation, self.config.sucker
-    elif a1 == 1 and a2 == 1:
-      r1, r2 = self.config.punishment, self.config.punishment
+    rr = np.logical_and(a1 == 0, a2 == 0)
+    st = np.logical_and(a1 == 0, a2 == 1)
+    ts = np.logical_and(a1 == 1, a2 == 0)
+    pp = np.logical_and(a1 == 1, a2 == 1)
+
+    r1 = rr * self.config.reward + \
+         st * self.config.sucker + \
+         ts * self.config.temptation + \
+         pp * self.config.punishment
+    r2 = rr * self.config.reward + \
+         st * self.config.temptation + \
+         ts * self.config.sucker + \
+         pp * self.config.punishment
+
+    # if a1 == 0 and a2 == 0:
+    #   r1, r2 = self.config.reward, self.config.reward
+    # elif a1 == 0 and a2 == 1:
+    #   r1, r2 = self.config.sucker, self.config.temptation
+    # elif a1 == 1 and a2 == 0:
+    #   r1, r2 = self.config.temptation, self.config.sucker
+    # elif a1 == 1 and a2 == 1:
+    #   r1, r2 = self.config.punishment, self.config.punishment
 
     return episode, r1, r2

@@ -28,7 +28,7 @@ class QLearningInfiniteAgent(AbstractAgent):
     self.build()
 
   def empty_actions_history(self):
-    return np.zeros(shape=(0,), dtype=np.int32)
+    return np.zeros(shape=(0, self.config.batch_size), dtype=np.int32)
 
   def add_placeholders(self):
     # n episodes to look back / feed into RNN
@@ -100,12 +100,12 @@ class QLearningInfiniteAgent(AbstractAgent):
 
   def act(self, sess, episode):
     states, n_episode_lookback = self.get_feed(self.total_episode)
-    feed = self.create_feed_dict([n_episode_lookback], [states])
+    feed = self.create_feed_dict([n_episode_lookback] * self.config.batch_size, states)
     action = sess.run(self.pred, feed_dict=feed)
-    action = action[0]
+    # action = action[0]
     # e-greedy: randomly choose strategy w/ probability
     if np.random.rand(1) < self.e:
-      action = np.random.randint(2)
+      action = np.random.randint(2, size=action.shape)
     # anneal e as game goes on
     self.e *= self.config.adapt
     assert (self.total_episode % self.config.n_episodes) == episode
@@ -113,7 +113,7 @@ class QLearningInfiniteAgent(AbstractAgent):
     return action
 
   def get_feed(self, total_episode):
-    states = np.zeros(shape=(self.config.n_episodes, 2 * 2), dtype=np.float32)
+    states = np.zeros(shape=(self.config.batch_size, self.config.n_episodes, 2 * 2), dtype=np.float32)
     if total_episode == 0:
       # if beginning of game, assume prev action is 0 for both opponent and self
       return states, 0
@@ -126,13 +126,14 @@ class QLearningInfiniteAgent(AbstractAgent):
     # set corresponding one-hot vector
     states[episode_is, own_action_history] = 1.0
     states[episode_is, opponent_action_history + 2] = 1.0
+    states = states.transpose([1, 0, 2])
     return states, n_episode_lookback
 
   def update(self, session, own_action, opponent_action, episode, reward):
     # update running score
     super(QLearningInfiniteAgent, self).update(session, own_action, opponent_action, episode, reward)
     self.opponent_actions = np.append(self.opponent_actions, opponent_action)
-    self.own_actions = np.append(self.own_actions, own_action)
+    self.own_actions = np.append(self.own_actions, own_action, axis=0)
     assert ((self.opponent_actions.shape[0] - episode - 1) % self.config.n_episodes) == 0
     assert ((self.own_actions.shape[0] - episode - 1) % self.config.n_episodes) == 0
     # skip 1st episode, because there're no prev actions
@@ -142,10 +143,10 @@ class QLearningInfiniteAgent(AbstractAgent):
     prev_own_action = self.own_actions[-2]
     prev_opponent_action = self.opponent_actions[-2]
     # update Q_target
-    Q_next = np.max(self.Q_target[own_action][opponent_action])
+    Q_next = np.max(self.Q_target[own_action, opponent_action], axis=-1)
     target = reward + self.config.discount * Q_next
-    self.Q_target[prev_own_action][prev_opponent_action][own_action] = \
-            (1 - self.config.learning_rate) * self.Q_target[prev_own_action][prev_opponent_action][own_action] + \
+    self.Q_target[prev_own_action, prev_opponent_action, own_action] = \
+            (1 - self.config.learning_rate) * self.Q_target[prev_own_action, prev_opponent_action, own_action] + \
             self.config.learning_rate * target
 
   def end_batch(self, sess, saver, best_score):
@@ -166,7 +167,7 @@ class QLearningInfiniteAgent(AbstractAgent):
     self.opponent_actions = self.opponent_actions[-self.config.n_episodes:]
     self.own_actions = self.own_actions[-self.config.n_episodes:]
     # clear game buffer
-    self.running_score = 0.0
+    self.running_score = np.zeros(shape=(self.config.batch_size,))
 
     # print stats
     logger.info('own_actions:')
@@ -177,7 +178,7 @@ class QLearningInfiniteAgent(AbstractAgent):
     # train
     states, _ = self.get_feed(self.total_episode)
     Q_targets = self.Q_target[self.own_actions, self.opponent_actions]
-    feed = self.create_feed_dict([self.config.n_episodes], [states], [Q_targets])
+    feed = self.create_feed_dict([self.config.n_episodes] * self.config.batch_size, states, Q_targets)
     loss, _, lr = sess.run([self.loss, self.train_op, self.learning_rate], feed_dict=feed)
 
     return score, loss, lr
