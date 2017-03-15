@@ -33,7 +33,7 @@ def get_title(config):
       config.n_c_agents,
       config.n_d_agents
     ]
-    agent_types = ['Q-1layer', 'Q-2layer', 'TitDat', 'Coop', 'Defect']
+    agent_types = ['Q-1layer', 'Q-2layer', 'Extort', 'TitDat', 'Coop', 'Defect']
     agents = []
     for i, count in enumerate(agent_counts):
       if count > 0:
