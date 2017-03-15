@@ -54,6 +54,9 @@ def get_subtitle(config):
 
 
 def moving_average(a, n=10):
+  if n <= 0:
+    # if length of a too small, return original array
+    return a
   ret = np.cumsum(a, dtype=float)
   ret[n:] = ret[n:] - ret[:-n]
   return ret / n
@@ -74,11 +77,11 @@ def markov_matrix(csv_filepath, config=None):
   p2, = plt.plot(_is[0][1], _as[0][1], lw=1.0, color=tableau20[2], alpha=0.3)
   p3, = plt.plot(_is[1][0], _as[1][0], lw=1.0, color=tableau20[4], alpha=0.3)
   p4, = plt.plot(_is[1][1], _as[1][1], lw=1.0, color=tableau20[6], alpha=0.3)
-  window = int(len(actions1) / 20)
-  mv_avg1 = moving_average(_as[0][0], n=window)
-  mv_avg2 = moving_average(_as[0][1], n=window)
-  mv_avg3 = moving_average(_as[1][0], n=window)
-  mv_avg4 = moving_average(_as[1][1], n=window)
+  mv_avg1 = moving_average(_as[0][0], n=int(len(_as[0][0]) / 20))
+  mv_avg2 = moving_average(_as[0][1], n=int(len(_as[0][1]) / 20))
+  mv_avg3 = moving_average(_as[1][0], n=int(len(_as[1][0]) / 20))
+  mv_avg4 = moving_average(_as[1][1], n=int(len(_as[1][1]) / 20))
+
   pavg1, = plt.plot(_is[0][0], mv_avg1, lw=3.5, color=tableau20[1], alpha=0.85)
   pavg2, = plt.plot(_is[0][1], mv_avg2, lw=3.5, color=tableau20[3], alpha=0.85)
   pavg3, = plt.plot(_is[1][0], mv_avg3, lw=3.5, color=tableau20[5], alpha=0.85)
