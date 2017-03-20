@@ -290,3 +290,11 @@ if __name__ == "__main__":
   config = Config(n_agents=2, agent_names=['Q-1layer', 'TitDat'])
   markov_matrix_prob('train/titdat_qa1_ta1_state10_lr0.01_lr_decay0.9995_n_episodes10_n_batches20000_discount0.95_e0.2_adapt0.9999_r3_t5_s0_p1/actions_pair.npz',
                      config)
+
+
+def agent_log(log, csv_filepath):
+  dirname = os.path.basename(os.path.dirname(csv_filepath))
+  filepath = os.path.join('plots', dirname, 'agent_log.txt')
+  with open(filepath, 'w') as fp:
+    fp.write(log)
+  print('saved log to ' + filepath)

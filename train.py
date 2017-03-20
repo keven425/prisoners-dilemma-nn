@@ -34,25 +34,30 @@ class PreExitSaver():
     self.actions = actions
     self.actions_pair = actions_pair
 
-  def save(self):
+  def save(self, agents):
     print('pre-exit saving')
     # save to csv
     scores_path = os.path.join(self.config.model_output_path, 'scores.npz')
     np.savez(scores_path, self.scores)
-    # csv.save_scores(scores_path, self.scores)
     actions_path = os.path.join(self.config.model_output_path, 'actions.npz')
     np.savez(actions_path, self.actions)
-    # csv.save_actions(actions_path, self.actions)
     # pairwise actions csv, for computing markov matrix
     actions_pair_path = os.path.join(self.config.model_output_path, 'actions_pair.npz')
     np.savez(actions_pair_path, self.actions_pair)
-    # csv.save_actions_pair(actions_pair_path, self.actions_pair)
 
     # plot
     summary.scores(scores_path, config=self.config)
     summary.actions(actions_path, config=self.config)
     summary.markov_matrix(actions_pair_path, config=self.config)
     summary.markov_matrix_prob(actions_pair_path, config=self.config)
+
+    # print each agents' last words
+    log = ''
+    for agent in agents:
+      log += 'agent: ' + agent.name + ':\n' + \
+             agent.log() + '\n\n\n'
+    summary.agent_log(log, actions_pair_path)
+
 
 
 
@@ -166,4 +171,4 @@ def run(config):
         # only update after one round, where all player pairs played
         preExitSaver.update(scores, actions, action_pairs)
 
-    preExitSaver.save()
+    preExitSaver.save(agents)

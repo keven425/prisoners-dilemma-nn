@@ -22,3 +22,6 @@ class AbstractAgent(object):
 
     def end_batch(self, sess, saver, best_score):
         raise NotImplementedError
+
+    def log(self):
+        return '' # by default, nothing to log

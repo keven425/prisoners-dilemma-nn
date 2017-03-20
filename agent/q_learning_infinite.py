@@ -181,3 +181,7 @@ class QLearningInfiniteAgent(AbstractAgent):
     loss, _, lr = sess.run([self.loss, self.train_op, self.learning_rate], feed_dict=feed)
 
     return score, loss, lr
+
+  def log(self):
+    return str(self.own_actions) + '\n\n' + \
+           str(self.Q_target)

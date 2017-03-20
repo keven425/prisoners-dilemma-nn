@@ -12,6 +12,7 @@ logger = logging.getLogger("209_project")
 class QLearningFiniteAgent(AbstractAgent):
 
   def __init__(self, config):
+    self.name = 'Q-finite'
     super(QLearningFiniteAgent, self).__init__(config)
     # opponent's history of actions
     # actions: 0 = cooperate, 1 = defect, 2 = unknown
